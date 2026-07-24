@@ -13,10 +13,10 @@ Pick by your OS (Debian codename) and CPU architecture. Check with
 
 | Platform | Package |
 |---|---|
-| Debian 13 **trixie**, x86-64 | `debs/asl3-chan-svx_0.2.3~trixie_amd64.deb` |
-| Debian 13 **trixie**, arm64 (Raspberry Pi OS trixie, Pi 3/4/5) | `debs/asl3-chan-svx_0.2.3~trixie_arm64.deb` |
-| Debian 12 **bookworm**, x86-64 | `debs/asl3-chan-svx_0.2.3~bookworm_amd64.deb` |
-| Debian 12 **bookworm**, arm64 (Raspberry Pi OS bookworm) | `debs/asl3-chan-svx_0.2.3~bookworm_arm64.deb` |
+| Debian 13 **trixie**, x86-64 | `debs/asl3-chan-svx_0.2.4~trixie_amd64.deb` |
+| Debian 13 **trixie**, arm64 (Raspberry Pi OS trixie, Pi 3/4/5) | `debs/asl3-chan-svx_0.2.4~trixie_arm64.deb` |
+| Debian 12 **bookworm**, x86-64 | `debs/asl3-chan-svx_0.2.4~bookworm_amd64.deb` |
+| Debian 12 **bookworm**, arm64 (Raspberry Pi OS bookworm) | `debs/asl3-chan-svx_0.2.4~bookworm_arm64.deb` |
 
 64-bit only. Requires AllStarLink 3 (`asl3-asterisk`) already installed —
 the package must match that exact release, so use the deb for your OS.
@@ -24,7 +24,7 @@ the package must match that exact release, so use the deb for your OS.
 ## Install
 
 ```sh
-sudo apt install ./debs/asl3-chan-svx_0.2.3~<os>_<arch>.deb
+sudo apt install ./debs/asl3-chan-svx_0.2.4~<os>_<arch>.deb
 ```
 
 Dependencies (`asl3-asterisk`, `libopus0`, `libssl3`) resolve automatically.

@@ -58,10 +58,10 @@ dpkg --print-architecture
 
 | Platform | Package |
 |-----------|----------|
-| Debian 13 (Trixie), x86-64 | `debs/asl3-chan-svx_0.2.6~trixie_amd64.deb` |
-| Debian 13 (Trixie), ARM64 (Raspberry Pi OS Trixie) | `debs/asl3-chan-svx_0.2.6~trixie_arm64.deb` |
-| Debian 12 (Bookworm), x86-64 | `debs/asl3-chan-svx_0.2.6~bookworm_amd64.deb` |
-| Debian 12 (Bookworm), ARM64 (Raspberry Pi OS Bookworm) | `debs/asl3-chan-svx_0.2.6~bookworm_arm64.deb` |
+| Debian 13 (Trixie), x86-64 | `debs/asl3-chan-svx_0.2.7~trixie_amd64.deb` |
+| Debian 13 (Trixie), ARM64 (Raspberry Pi OS Trixie) | `debs/asl3-chan-svx_0.2.7~trixie_arm64.deb` |
+| Debian 12 (Bookworm), x86-64 | `debs/asl3-chan-svx_0.2.7~bookworm_amd64.deb` |
+| Debian 12 (Bookworm), ARM64 (Raspberry Pi OS Bookworm) | `debs/asl3-chan-svx_0.2.7~bookworm_arm64.deb` |
 
 Only 64-bit platforms are supported.
 
@@ -70,7 +70,7 @@ Only 64-bit platforms are supported.
 Install the package that matches your operating system and architecture:
 
 ```sh
-sudo apt install ./debs/asl3-chan-svx_0.2.6~<os>_<arch>.deb
+sudo apt install ./debs/asl3-chan-svx_0.2.7~<os>_<arch>.deb
 ```
 
 Required dependencies (`asl3-asterisk`, `libopus0`, and `libssl3`) will be installed automatically.

@@ -32,13 +32,7 @@ Bug reports and support requests: **bjorne@sa7aux.se**
 - AllStarLink 3 (`asl3-asterisk`) already installed
 - Access credentials for an SVXReflector
 
-## Download
 
-Clone the repository:
-
-```sh
-git clone https://github.com/<your-repository>/asl3-chan-svx.git
-cd asl3-chan-svx
 ```
 
 ## Choose the Correct Package
@@ -55,23 +49,17 @@ Verify your CPU architecture:
 ```sh
 dpkg --print-architecture
 ```
+## Download
 
-| Platform | Package |
-|-----------|----------|
-| Debian 13 (Trixie), x86-64 | `debs/asl3-chan-svx_0.3.2~trixie_amd64.deb` |
-| Debian 13 (Trixie), ARM64 (Raspberry Pi OS Trixie) | `debs/asl3-chan-svx_0.3.2~trixie_arm64.deb` |
-| Debian 12 (Bookworm), x86-64 | `debs/asl3-chan-svx_0.3.2~bookworm_amd64.deb` |
-| Debian 12 (Bookworm), ARM64 (Raspberry Pi OS Bookworm) | `debs/asl3-chan-svx_0.3.2~bookworm_arm64.deb` |
-
-Only 64-bit platforms are supported.
+do not clone the repository:
+instead perform the following instructions.
+```sh
+cd /tmp/
+wget https://github.com/f5vmr/your choice of OS
+dpkg -i the deb of your choice by name.
 
 ## Installation
 
-Install the package that matches your operating system and architecture:
-
-```sh
-sudo apt install ./debs/asl3-chan-svx_0.3.2~<os>_<arch>.deb
-```
 
 Required dependencies (`asl3-asterisk`, `libopus0`, and `libssl3`) will be installed automatically.
 
@@ -79,16 +67,19 @@ Required dependencies (`asl3-asterisk`, `libopus0`, and `libssl3`) will be insta
 
 ### 1. Create svx.conf
 
-Create `/etc/asterisk/svx.conf` and configure:
+Create `/etc/asterisk/svx.conf` by cp /etc/asterisk/svx.conf.sample 
 
-- Reflector hostname
-- Port
-- Callsign
-- Password
+Configure:
+- [Section] number which is the number of the private node.
+- Reflector hostname - as you would for a node
+- Port as per your selection.
+- Login - use the callsign as below as registered in the reflector
+- Callsign as registered in the reflector.
+- Password as registered in the refelctor
 - Talk group
-
+- Monitor 
 Optional settings:
-
+Which can be ignored as the standard setting are quite adequate.
 - `tx_hold`
 - `jitter`
 - `rx_gain`
@@ -117,7 +108,7 @@ remove the leading semicolon.
 Edit `/etc/asterisk/rpt.conf` and set:
 
 ```ini
-rxchannel = SVX/<section>
+rxchannel = SVX/<section> where <section> is the private node number
 ```
 
 where `<section>` matches the section name in `svx.conf`.
@@ -152,10 +143,12 @@ The package post-install script (`postinst`) also displays the required setup st
 
 `chan_svx` implements the SVXReflector v2 protocol (HMAC-SHA1).
 
-Reflectors that provide v2 compatibility can be used even if their SvxLink nodes normally operate using v3/TLS.
+Reflectors that provide v2 compatibility can be used even if their SvxLink nodes normally operate using v3/TLS. As our AllStarLink nodes are running V2 and the new SvxReflector is running V3 Now, these none standard callsigns have to be entered like this :
+ACCEPT_CALLSIGN="(?:[A-Z0-9][A-Z]{0,2}\\d[A-Z0-9]{0,3}[A-Z](?:-[A-Z0-9]{1,3})?|REFLECTOR-F[A-Z0-9]{2,4}|ASL-[A-Z0-9]+(?:-[A-Z0-9]+)*|NWAG|FREEDOM|BLINDHAMS)" using the PIPE character. They will then be picked up from the main list in [CALLSIGNS] & [PASSWORDS].
+
 
 ## Notes
 
-- Reflector logins must use an **upper-case callsign**.
+- Reflector logins must use an **upper-case callsign**. So EarsRadio will have to be changed.
 - SVXReflector validates callsigns case-sensitively.
 - The package version should match the installed AllStarLink 3 release.

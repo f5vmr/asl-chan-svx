@@ -24,7 +24,7 @@ This allows SVXReflector talk groups to be used directly from AllStarLink withou
 
 Source code is private.
 
-Bug reports and support requests: **bjorne@sa7aux.se**
+Author sa7aux
 
 ## Requirements
 
